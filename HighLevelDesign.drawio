@@ -1,9 +1,33 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:130.0) Gecko/20100101 Firefox/130.0" version="24.7.16">
   <diagram name="Page-1" id="gYWtFj8rXn-eV2xmv8V1">
-    <mxGraphModel>
+    <mxGraphModel dx="2607" dy="1496" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="6ke2kDxzbG-uKFPfa5P0-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="6ke2kDxzbG-uKFPfa5P0-1" target="6ke2kDxzbG-uKFPfa5P0-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6ke2kDxzbG-uKFPfa5P0-7" value="Read&lt;br&gt;Data&lt;br&gt;Input" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="6ke2kDxzbG-uKFPfa5P0-4">
+          <mxGeometry x="-0.1373" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6ke2kDxzbG-uKFPfa5P0-1" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.users.csv_file;" vertex="1" parent="1">
+          <mxGeometry x="310" y="220" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="6ke2kDxzbG-uKFPfa5P0-5" value="Write&lt;br&gt;&lt;div&gt;CSV&lt;br&gt;&lt;/div&gt;Output" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="6ke2kDxzbG-uKFPfa5P0-2" target="6ke2kDxzbG-uKFPfa5P0-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1130" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6ke2kDxzbG-uKFPfa5P0-2" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://miro.medium.com/v2/resize:fit:1400/1*PeyTw85m3b3PQWLoN0UiiA.png;" vertex="1" parent="1">
+          <mxGeometry x="680" y="249.16" width="277.97" height="101.69" as="geometry" />
+        </mxCell>
+        <mxCell id="6ke2kDxzbG-uKFPfa5P0-6" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.users.csv_file;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="220" width="200" height="160" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
