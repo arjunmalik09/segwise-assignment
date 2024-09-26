@@ -16,7 +16,7 @@ lerna-debug.log*
 
 # OS
 .DS_Store
-/pyenv.cfg
+/pyvenv.cfg
 
 # Tests
 /coverage
