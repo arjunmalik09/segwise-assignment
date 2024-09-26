@@ -34,5 +34,5 @@ This means there are a 1000 apps released between years 2005-2010.<br>
 3. All possible subsets of a set of 12 properties will be of the order of 2^12 ~ 4096. This number will go up when you consider different values for each of the columns.<br>
 
 ## High Level Design:
-[High Level Design](HighLevelDesign.drawio)
+[High Level Design](HighLevelDesign.drawio)<br>
 ![High Level Design](HighLevelDesign.drawio.png)
