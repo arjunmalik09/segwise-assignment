@@ -36,3 +36,9 @@ This means there are a 1000 apps released between years 2005-2010.<br>
 ## High Level Design:
 [High Level Design](HighLevelDesign.drawio)<br>
 ![High Level Design](HighLevelDesign.drawio.png)
+
+## Installation:
+1. Setup python virtualenv in project root directory:
+`python3 -m venv .`
+2. Install packages: `pip install requirements.txt`
+3. Setup python virtualenv in project root directory: `python -m venv .`
