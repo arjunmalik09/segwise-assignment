@@ -39,5 +39,5 @@ This means there are a 1000 apps released between years 2005-2010.<br>
 
 ## Installation:
 1. Setup python virtualenv in project root directory: `python3 -m venv .`
-2. Install packages: `pip install requirements.txt`
+2. Install packages: `pip install -r requirements.txt`
 3. Run main.py: `python main.py`
