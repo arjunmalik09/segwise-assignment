@@ -1,8 +1,5 @@
 # Given the data of some of the android apps from playstore, this pyspark job generates insights from it.
 # Insights provide count of apps based on various combination of fields provided in input.
-# 1. Code complete
-# 2. Testing
-# 3. Write output as file and submit
 import sys
 from operator import add
 
