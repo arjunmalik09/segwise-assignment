@@ -4,7 +4,7 @@
 /build
 /bin
 /lib
-
+/share
 # Logs
 logs
 *.log
