@@ -5,6 +5,11 @@ from pyspark.sql import SparkSession
 import pandas as pd
 
 def transform(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    1. Bin each column of dataframe. Create 10 bin for each column
+    2. For each k combination out of n columns,
+        1. Group the k column combination and find total count
+    """
     pass
 
 if __name__ == "__main__":
