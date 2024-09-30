@@ -3,14 +3,16 @@
 import sys
 from pyspark.sql import SparkSession
 import pandas as pd
+from pyspark.sql.functions import pandas_udf
 
+@pandas_udf()
 def transform(df: pd.DataFrame) -> pd.DataFrame:
     """
     1. Bin each column of dataframe. Create 10 bin for each column
     2. For each k combination out of n columns,
         1. Group the k column combination and find total count
     """
-    pass
+    return df
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -20,15 +22,9 @@ if __name__ == "__main__":
     if filename[-4:] != ".csv":
         print("Invalid Input File: Please input csv file", file=sys.stderr)
         sys.exit(-1)
-
+    output_filename = f"output_{filename}"
     spark = SparkSession.builder.appName("Counts").getOrCreate()
     df = spark.read.csv(filename)
-    df.applyInPandas(transform, schema=df.schema)
-    df.show()
-    # counts = lines.flatMap(lambda x: x.split(',')).map(lambda x: (x, 1))
-    # output = counts.collect()
-    # with open("output.csv", "rw+") as output_file:
-    #     for (word, count) in output:
-    #         print("%s: %i" % (word, count))
-    #         output_file.write(word, count)
+    output_df = df.select(transform(df))
+    df.write.csv(output_filename, header=True)
     spark.stop()
