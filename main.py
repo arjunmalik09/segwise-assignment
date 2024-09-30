@@ -5,7 +5,7 @@ from pyspark.sql import SparkSession
 
 def transform(spark, df):
     """
-    1. Bin each column of dataframe. Create 10 bin for each column
+    1. Bin each integer column of dataframe. Create 10 bin for each integer column
     2. For each k combination out of n columns,
         1. Group the k column combination and find total count
     """
