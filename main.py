@@ -2,17 +2,17 @@
 # Insights provide count of apps based on various combination of fields provided in input.
 import sys
 from pyspark.sql import SparkSession
-import pandas as pd
-from pyspark.sql.functions import pandas_udf
 
-@pandas_udf()
-def transform(df: pd.DataFrame) -> pd.DataFrame:
+def transform(spark, df):
     """
     1. Bin each column of dataframe. Create 10 bin for each column
     2. For each k combination out of n columns,
         1. Group the k column combination and find total count
     """
-    return df
+    column_names = df.columns
+    rows = df.collect()
+    data = [{col: row[col]} for col in column_names for row in rows]
+    return spark.createDataFrame(data)
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -25,6 +25,6 @@ if __name__ == "__main__":
     output_filename = f"output_{filename}"
     spark = SparkSession.builder.appName("Counts").getOrCreate()
     df = spark.read.csv(filename)
-    output_df = df.select(transform(df))
-    df.write.csv(output_filename, header=True)
+    output_df = transform(spark, df)
+    output_df.write.csv(output_filename, header=True)
     spark.stop()
