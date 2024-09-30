@@ -10,7 +10,7 @@ def transform(spark, df):
         1. Group the k column combination and find total count
     """
     column_names = df.columns
-    rows = df.collect()
+    rows = df.offset(0).limit(100).collect()
     data = [{col: row[col]} for col in column_names for row in rows]
     return spark.createDataFrame(data)
 

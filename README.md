@@ -38,6 +38,6 @@ This means there are a 1000 apps released between years 2005-2010.<br>
 ![High Level Design](HighLevelDesign.drawio.png)
 
 ## Installation:
-1. Setup python virtualenv in project root directory: `python3 -m venv .`
-2. Install packages: `pip install -r requirements.txt`
-3. Run main.py: `python main.py`
+1. Install docker
+2. Build docker image: `docker build . -t segwise:latest`
+3. Run docker process: `docker run -it -d --name segwise segwise:latest`
