@@ -4,15 +4,19 @@ import sys
 from itertools import combinations
 import time
 from pyspark.sql import SparkSession
+from pyspark.ml.feature import QuantileDiscretizer
 
-def bin_dataframe(spark, df):
-    # from pyspark.ml.feature import QuantileDiscretizer
-    # output_column_names = [col + "_bin" for col in column_names]
-    # qds = QuantileDiscretizer(relativeError=0.01, handleInvalid="error", numBuckets=10, inputCols=column_names, outputCols=output_column_names)
-    # binner = lambda df: qds.setHandleInvalid("keep").fit(df).transform(df)
-    return df
+def bin_dataframe(df):
+    column_names = df.columns
+    input_column_names = [col for col in column_names if df.schema[col].dataType in ['int', 'float']]
+    output_column_names = [col + "_bin" for col in column_names if df.schema[col].dataType in ['int', 'float']]
+    qds = QuantileDiscretizer(relativeError=0.01, handleInvalid="error", numBuckets=10, inputCols=input_column_names, outputCols=output_column_names)
+    binner = lambda df: qds.setHandleInvalid("keep").fit(df).transform(df)
+    return binner(df).select(
+        [*[col for col in column_names if df.schema[col].dataType not in ['int', 'float']], *output_column_names]
+    )
 
-def transform(spark, df):
+def transform(df):
     """
     1. Bin each integer column of dataframe. Create 10 bin for each integer column
     2. For each k combination out of n columns,
@@ -21,7 +25,7 @@ def transform(spark, df):
     """
     tranformed_dfs = []
     column_names = df.columns
-    df = bin_dataframe(spark, df)
+    df = bin_dataframe(df)
     for k in range(1, len(column_names) + 1):
         print(f"Tranform dataframe as {k} length")
         for column_combination in combinations(column_names, k):
@@ -40,7 +44,7 @@ if __name__ == "__main__":
         sys.exit(-1)
     spark = SparkSession.builder.appName("Counts").getOrCreate()
     df = spark.read.csv(filename)
-    output_dfs = transform(spark, df)
+    output_dfs = transform(df)
     for output_df in output_dfs:
         output_filename = f"output_{int(time.time() * 1000)}_{filename}"
         output_df.write.csv(output_filename, header=True)
