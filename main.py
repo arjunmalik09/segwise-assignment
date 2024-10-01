@@ -29,8 +29,9 @@ def transform(df):
     for k in range(1, len(column_names) + 1):
         print(f"Tranform dataframe as {k} length")
         for column_combination in combinations(column_names, k):
+            cols = list(column_combination)
             tranformed_dfs.append(
-                df.select(column_combination).groupBy(column_combination).count()
+                df.select(cols).groupBy(cols).count()
             )
     return tranformed_dfs
 
